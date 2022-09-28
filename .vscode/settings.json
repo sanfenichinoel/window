@@ -1,0 +1,49 @@
+{
+    "files.encoding": "utf8",
+    "code-runner.saveFileBeforeRun": true,
+    "files.autoGuessEncoding": false,
+    "debug.console.closeOnEnd": false,
+    "c-cpp-compile-run.run-in-external-terminal": true,
+    "files.associations": {
+        "vector": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "fstream": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp"
+    },
+    "code-runner.executorMap": {
+        "cpp": "cd $dir && g++ $fileName -DLOCAL -o $fileNameWithoutExt && $dir$fileNameWithoutExt ",    // 终端
+    },
+    "C_Cpp.default.includePath": [
+        "C:\\Program Files\\IDE\\python\\include",
+        "C:\\Program Files\\IDE\\python\\libs"
+    ],
+    "c-cpp-compile-run.cpp-flags": "-Wall -Wextra  -leasyx -IC:/\"Program Files\"/IDE/python/include  -LC:/\"Program Files\"/IDE/python/libs -l_tkinter -lpython3 -lpython3_d -lpython310 -lpython310_d",
+
+// ************************************************************************************************
+    
+    "python.analysis.extraPaths": [
+        "C:/Users/sanfen/AppData/Roaming/Python/Python310/site-packages"
+    ],
+    "python.autoComplete.addBrackets":true,
+    "python.autoComplete.extraPaths": [
+        "C:/Users/sanfen/AppData/Roaming/Python/Python310/site-packages"
+    ],
+    "python.analysis.completeFunctionParens": true,
+    
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "flake8",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "whataformatter",
+    "python.formatting.blackArgs": [],
+}
