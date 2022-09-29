@@ -27,7 +27,7 @@
         "C:\\Program Files\\IDE\\python\\include",
         "C:\\Program Files\\IDE\\python\\libs"
     ],
-    "c-cpp-compile-run.cpp-flags": "-Wall -Wextra  -leasyx -IC:/\"Program Files\"/IDE/python/include  -LC:/\"Program Files\"/IDE/python/libs -l_tkinter -lpython3 -lpython3_d -lpython310 -lpython310_d",
+    "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -leasyx -mwindows -IC:/\"Program Files\"/IDE/python/include  -LC:/\"Program Files\"/IDE/python/libs -l_tkinter -lpython3 -lpython3_d -lpython310 -lpython310_d",
 
 // ************************************************************************************************
     
