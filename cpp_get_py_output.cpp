@@ -3,10 +3,25 @@
 #include <string>
 #include <windows.h>
 
-void cpp_get_python_output() 
+void UTF8ToGBK(const char* strUTF8, char* iNeed)
 {
-    SetConsoleOutputCP(65001);
+	int len = MultiByteToWideChar(CP_UTF8, 0, strUTF8, -1, NULL, 0);
+	wchar_t* wszGBK = new wchar_t[len + 1];
+	memset(wszGBK, 0, len * 2 + 2);
+	MultiByteToWideChar(CP_UTF8, 0, strUTF8, -1, wszGBK, len);
+	len = WideCharToMultiByte(CP_ACP, 0, wszGBK, -1, NULL, 0, NULL, NULL);
+	char* szGBK = new char[len + 1];
+	memset(szGBK, 0, len + 1);
+	WideCharToMultiByte(CP_ACP, 0, wszGBK, -1, szGBK, len, NULL, NULL);
+    strcpy(iNeed, szGBK);
 
+	if (wszGBK) delete[] wszGBK;
+	if (szGBK) delete[] szGBK;
+
+}
+
+void cpp_get_python_output( char* iSay ) 
+{
     Py_Initialize();
     PyObject* pModule = NULL;
     PyObject* pFunc = NULL;
@@ -14,13 +29,11 @@ void cpp_get_python_output()
 
     pModule = PyImport_ImportModule("get_saying");
     pFunc = PyObject_GetAttrString(pModule, "ISay");
-    PyObject* pReturn = PyEval_CallObject(pFunc, NULL);
+    PyObject* pReturn = PyObject_CallObject(pFunc, NULL);
 
-    char* iSay = NULL;
-    PyArg_Parse(pReturn, "s", &iSay);
+    char *ss = NULL;
+    PyArg_Parse(pReturn, "s", &ss);
 
-
-    std::cout << iSay << "\n";
-
+    UTF8ToGBK(ss, iSay);
     Py_Finalize();
 }
