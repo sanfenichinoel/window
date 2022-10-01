@@ -37,3 +37,13 @@ void cpp_get_python_output( char* iSay )
     UTF8ToGBK(ss, iSay);
     Py_Finalize();
 }
+
+
+// int main()
+// {
+//     char  s[105];
+//     cpp_get_python_output(s);
+
+//     std::cout << s << std::endl;
+//     return 0;
+// }

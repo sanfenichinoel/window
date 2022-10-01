@@ -7,7 +7,8 @@
 #include <tchar.h>
 #include <string>
 #include <windows.h>
-#include "cpp_get_py_output.cpp"
+#include "cpp_get_saying_on_txt.cpp"
+// #include "cpp_get_py_output.cpp"
 
 char iSay[105];        
 int myLen;
@@ -16,7 +17,9 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
  
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int nCmdShow)
 {
-    cpp_get_python_output(iSay);
+    // 非常捞的操作
+    WinExec("./env/dist/get_saying.exe", SW_SHOWNORMAL);
+    cpp_get_saying(iSay);
     myLen = strlen(iSay);
 
     // 设计一个窗口类
@@ -53,7 +56,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLin
  
     int scrWidth = GetSystemMetrics(SM_CXSCREEN);
     int scrHeight = GetSystemMetrics(SM_CYSCREEN);
-    HWND hWnd = CreateWindowEx(NULL, _T("one"), _T("窗口"), WS_OVERLAPPEDWINDOW, scrWidth*3/8, scrHeight*3/8, scrWidth/4, scrHeight/4, NULL, NULL, hInstance, NULL);
+    HWND hWnd = CreateWindowEx(NULL, _T("one"), _T("窗口"), WS_OVERLAPPEDWINDOW, scrWidth/3, scrHeight*3/8, scrWidth/3, scrHeight/4, NULL, NULL, hInstance, NULL);
     if (hWnd == NULL){
         MessageBox(NULL, _T("创建窗口失败!"), _T("错误"), MB_YESNO | MB_ICONERROR);
         exit(-1);
