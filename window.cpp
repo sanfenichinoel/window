@@ -1,6 +1,5 @@
 // encoding :  GBK
 
-#define mwindows
 #include <conio.h>
 #include <iostream>
 #include <cstring>
@@ -17,48 +16,48 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
  
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int nCmdShow)
 {
-    // ·Ç³£ÀÌµÄ²Ù×÷
+    // ï¿½Ç³ï¿½ï¿½ÌµÄ²ï¿½ï¿½ï¿½
     WinExec("./env/dist/get_saying.exe", SW_SHOWNORMAL);
     cpp_get_saying(iSay);
     myLen = strlen(iSay);
 
-    // Éè¼ÆÒ»¸ö´°¿ÚÀà
+    // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     WNDCLASSEX wcex;
-    // ÀàÃû³Æ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     wcex.lpszClassName = _T("one");
-    // ´°¿Ú¾ä±ú
+    // ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½
     wcex.hInstance = hInstance;
-    // ´°¿Ú¹ý³Ìº¯Êý
+    // ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½Ìºï¿½ï¿½ï¿½
     wcex.lpfnWndProc = WndProc;
-    // Àà´óÐ¡
+    // ï¿½ï¿½ï¿½Ð¡
     wcex.cbSize = sizeof(WNDCLASSEX);
-    // ´°¿ÚÑùÊ½
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
     wcex.style = CS_HREDRAW | CS_VREDRAW;     
-    // ÀàÍ¼±ê
+    // ï¿½ï¿½Í¼ï¿½ï¿½
     wcex.hIcon = NULL;
     wcex.hIconSm = NULL;
-    // ¹â±êÉèÖÃ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-    // Àà±³¾°»­Ë¢
+    // ï¿½à±³ï¿½ï¿½ï¿½ï¿½Ë¢
     wcex.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
-    // Àà²Ëµ¥ 
+    // ï¿½ï¿½Ëµï¿½ 
     wcex.lpszMenuName = NULL;
-    // ¸½¼Ó´°¿ÚÀà´æ´¢¿Õ¼ä   
+    // ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½Õ¼ï¿½   
     wcex.cbClsExtra = 0; 
-    // ¸½¼Ó´°¿Ú´æ´¢¿Õ¼ä   
+    // ï¿½ï¿½ï¿½Ó´ï¿½ï¿½Ú´æ´¢ï¿½Õ¼ï¿½   
     wcex.cbWndExtra = 0;
  
-    // ×¢²áÕâ¸ö´°¿ÚÀà
+    // ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if (RegisterClassEx(&wcex) == ((ATOM)0)){
-        MessageBox(NULL, _T("×¢²á´°¿ÚÀàÊ§°Ü!"), _T("´íÎó"), MB_YESNO | MB_ICONERROR);
+        MessageBox(NULL, _T("×¢ï¿½á´°ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½!"), _T("ï¿½ï¿½ï¿½ï¿½"), MB_YESNO | MB_ICONERROR);
         exit(-1);
     }
  
     int scrWidth = GetSystemMetrics(SM_CXSCREEN);
     int scrHeight = GetSystemMetrics(SM_CYSCREEN);
-    HWND hWnd = CreateWindowEx(NULL, _T("one"), _T("´°¿Ú"), WS_OVERLAPPEDWINDOW, scrWidth/3, scrHeight*3/8, scrWidth/3, scrHeight/4, NULL, NULL, hInstance, NULL);
+    HWND hWnd = CreateWindowEx(NULL, _T("one"), _T("ï¿½ï¿½ï¿½ï¿½"), WS_OVERLAPPEDWINDOW, scrWidth/3, scrHeight*3/8, scrWidth/3, scrHeight/4, NULL, NULL, hInstance, NULL);
     if (hWnd == NULL){
-        MessageBox(NULL, _T("´´½¨´°¿ÚÊ§°Ü!"), _T("´íÎó"), MB_YESNO | MB_ICONERROR);
+        MessageBox(NULL, _T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½!"), _T("ï¿½ï¿½ï¿½ï¿½"), MB_YESNO | MB_ICONERROR);
         exit(-1);
     }
  
@@ -94,7 +93,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
 
     case WM_DESTROY:
-        PostQuitMessage(0); // ³ÌÐòÍË³ö
+        PostQuitMessage(0); // ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
         break;
 
     case WM_PAINT:
