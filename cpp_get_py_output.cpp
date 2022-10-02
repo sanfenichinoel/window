@@ -38,7 +38,6 @@ void cpp_get_python_output( char* iSay )
     Py_Finalize();
 }
 
-
 // int main()
 // {
 //     char  s[105];

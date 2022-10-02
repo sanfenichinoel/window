@@ -14,6 +14,5 @@ def ISay():
 
 if __name__ == "__main__":
     r = ISay()
-    # print(r)
     with open("./isay.txt",'w', encoding="gbk") as f:
         f.write(r)
